@@ -1,0 +1,197 @@
+/* ==========================================================================
+   Servicold Perú — custom.css
+   Capa de mejora visual y funcional cargada DESPUÉS del CSS de Elementor.
+   No modifica el CSS original; solo lo pule con selectores de mayor alcance.
+   ========================================================================== */
+
+:root {
+  --brand: #288da8;
+  --brand-2: #1f7a91;
+  --brand-3: #3fb3cf;
+  --brand-dark: #113f4b;
+  --brand-light: #e9f4f6;
+  --ink: #0f1c20;
+  --body: #4a5b60;
+  --muted: #7a8a8f;
+  --white: #ffffff;
+  --radius-sm: 12px;
+  --radius: 18px;
+  --radius-lg: 26px;
+  --shadow-sm: 0 6px 20px rgba(17, 63, 75, 0.08);
+  --shadow: 0 14px 40px rgba(17, 63, 75, 0.12);
+  --shadow-lg: 0 24px 60px rgba(17, 63, 75, 0.18);
+  --font-head: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Base ---------- */
+html { scroll-behavior: smooth; }
+
+html, body { overflow-x: hidden; }
+
+body {
+  font-family: var(--font-body) !important;
+  color: var(--body);
+  background: #fbfdfe;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--brand); color: #fff; }
+
+h1, h2, h3, h4, h5, h6,
+.elementor-heading-title,
+.ekit-heading--title,
+.ekit-heading__title-base,
+.elementskit-section-title {
+  font-family: var(--font-head) !important;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.15 !important;
+}
+
+p { line-height: 1.7; }
+
+a { transition: color .25s var(--ease), opacity .25s var(--ease); }
+
+img { max-width: 100%; height: auto; }
+
+/* Secciones: ritmo vertical y ancla con margen superior */
+.elementor-element.e-parent { scroll-margin-top: 90px; }
+
+/* ---------- Botones ---------- */
+.elementor-button {
+  font-family: var(--font-head) !important;
+  font-weight: 600 !important;
+  letter-spacing: .01em;
+  border-radius: 999px !important;
+  padding: 15px 30px !important;
+  background: linear-gradient(135deg, var(--brand-3) 0%, var(--brand) 45%, var(--brand-2) 100%) !important;
+  color: #fff !important;
+  border: 0 !important;
+  box-shadow: 0 10px 24px rgba(40, 141, 168, .28) !important;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), filter .3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.elementor-button:hover,
+.elementor-button:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 38px rgba(40, 141, 168, .38) !important;
+  filter: saturate(1.08);
+}
+.elementor-button:active { transform: translateY(-1px); }
+.elementor-button .elementor-button-icon i { transition: transform .3s var(--ease); }
+.elementor-button:hover .elementor-button-icon i { transform: translateX(4px); }
+
+/* Botón "fantasma" para enlaces de icono (flechas de tarjetas) */
+.elementor-widget-icon a.elementor-icon {
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.elementor-widget-icon a.elementor-icon:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 12px 26px rgba(40, 141, 168, .35);
+}
+
+/* ---------- Imágenes y tarjetas ---------- */
+.elementor-widget-image img {
+  border-radius: var(--radius);
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.elementor-widget-image:hover img { box-shadow: var(--shadow); }
+
+/* Tarjetas detectadas por JS (.svc-card) */
+.svc-card {
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-sm) !important;
+  border: 1px solid rgba(40, 141, 168, .08) !important;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  overflow: hidden;
+}
+.svc-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Etiquetas / chips (icon-list que hacen de badge) */
+.elementor-icon-list-items .elementor-icon-list-item {
+  transition: transform .3s var(--ease);
+}
+.elementor-icon-list-icon i,
+.elementor-icon-list-icon svg {
+  transition: transform .3s var(--ease);
+}
+.elementor-icon-list-item:hover .elementor-icon-list-icon i,
+.elementor-icon-list-item:hover .elementor-icon-list-icon svg { transform: rotate(-8deg) scale(1.08); }
+
+/* ---------- Sección oscura / franjas ---------- */
+section, .elementor-element.e-parent { position: relative; }
+
+/* ---------- Formulario moderno ---------- */
+.elementor-field-group .elementor-field-label {
+  font-family: var(--font-head) !important;
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 14px;
+}
+.elementor-field-textual {
+  border-radius: var(--radius-sm) !important;
+  border: 1.5px solid #dbe7ea !important;
+  background: #fff !important;
+  padding: 14px 18px !important;
+  color: var(--ink) !important;
+  transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
+  font-size: 15px;
+}
+.elementor-field-textual::placeholder { color: #9fb0b5; }
+.elementor-field-textual:focus {
+  border-color: var(--brand) !important;
+  box-shadow: 0 0 0 4px rgba(40, 141, 168, .15) !important;
+  outline: none;
+}
+.elementor-field-group { margin-bottom: 18px !important; }
+
+/* Mensajes de estado del formulario */
+.svc-form-status {
+  margin-top: 14px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 14px;
+  display: none;
+}
+.svc-form-status.is-active { display: block; }
+.svc-form-status.is-success { background: #e7f8ef; color: #157347; border: 1px solid #b7e7cc; }
+.svc-form-status.is-error { background: #fdeaea; color: #b02a2a; border: 1px solid #f3c2c2; }
+.svc-form-status.is-loading { background: var(--brand-light); color: var(--brand-dark); border: 1px solid #bfe0e8; }
+
+/* ---------- Footer ---------- */
+footer .elementor-widget-icon .elementor-icon {
+  background: rgba(255, 255, 255, .12) !important;
+}
+footer a:hover { opacity: .82; }
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+.joinchat__button {
+  box-shadow: 0 14px 34px rgba(37, 211, 102, .45) !important;
+  transition: transform .3s var(--ease);
+}
+.joinchat__button:hover { transform: scale(1.08); }
+
+/* ---------- Animaciones de entrada más suaves ---------- */
+.elementor-invisible { animation-fill-mode: both; }
+
+/* ---------- Utilidades ---------- */
+.svc-hidden { display: none !important; }
+
+/* Realce del título con subrayado ondulado en la marca */
+.ekit-heading__title-has-border.start::after {
+  background: linear-gradient(90deg, var(--brand-3), var(--brand-2));
+  border-radius: 999px;
+}
+
+@media (max-width: 767px) {
+  .elementor-button { padding: 13px 24px !important; }
+  h1, .elementor-heading-title { letter-spacing: -0.01em; }
+}

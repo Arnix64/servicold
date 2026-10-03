@@ -1,16 +1,19 @@
-# Servicold Peru — Clon estático (demo)
+# Servicold Perú — Sitio estático (demo)
 
-Clon estático de la página de inicio de [servicoldperu.com](https://servicoldperu.com/) para fines de presentación.
+Sitio de presentación de **Servicold Perú**, especialistas en aire acondicionado y refrigeración en Lima.
 
-Sitio de demostración: **https://arnix64.github.io/servicold/**
+Demo: **https://arnix64.github.io/servicold/**
 
 ## Contenido
 
-- `index.html` — página clonada con todas las rutas reescritas a rutas relativas locales.
-- `assets/` — CSS, JavaScript, imágenes y fuentes descargados del sitio original.
+- `index.html` — página con rutas relativas locales y SEO (metadatos, Open Graph).
+- `custom.css` — capa de diseño moderno (tipografía, botones, tarjetas, formulario).
+- `custom.js` — WhatsApp, navegación con anclas y envío del formulario (Formspree).
+- `assets/` — CSS, JS, imágenes y fuentes optimizadas (sin formatos de fuente obsoletos).
+- `robots.txt` y `sitemap.xml` — para buscadores.
 - `.nojekyll` — evita el procesamiento de GitHub Pages (Jekyll).
 - `source-original.html` — HTML original de respaldo.
-- `mirror.ps1` — script de PowerShell usado para generar el espejo local.
+- `mirror.ps1` — script usado para generar el espejo local.
 
 ## Ver en local
 
@@ -21,7 +24,18 @@ python -m http.server 8080
 # luego abre http://localhost:8080
 ```
 
+## Configurar el formulario
+
+El formulario usa **Formspree**. En `custom.js`, reemplaza:
+
+```js
+var FORMSPREE_ENDPOINT = "https://formspree.io/f/TU_ID_FORMSPREE";
+```
+
+por tu endpoint real (por ejemplo `https://formspree.io/f/abcdwxyz`). Mientras no lo
+cambies, el formulario mostrará un aviso y no enviará datos.
+
 ## Aviso
 
-- Es un espejo con fines de demostración/portafolio. Todos los derechos del diseño y contenido pertenecen a Servicold Peru.
-- El formulario de contacto está deshabilitado; algunas funciones dinámicas (WhatsApp/estadísticas) apuntan al servidor original y no operan en esta demo.
+- Proyecto con fines de demostración/portafolio. El diseño y el contenido pertenecen a Servicold Perú.
+- El botón de WhatsApp abre el chat con el número configurado; el contador de clics del sitio original no aplica en esta demo.

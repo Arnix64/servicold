@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arnix64.github.io/servicold/sitemap.xml

@@ -83,7 +83,9 @@
     "servicios": "#servicios",
     "proyectos": "#proyectos",
     "contacto": "#contacto",
-    "cobertura": "#cobertura"
+    "cobertura": "#cobertura",
+    "galería": "#galeria",
+    "galeria": "#galeria"
   };
 
   function wireNav() {
@@ -171,6 +173,76 @@
     }, true);
   }
 
+  /* -------------------- Galería (lightbox) -------------------- */
+  function setupGallery() {
+    var items = document.querySelectorAll(".svc-gallery-item");
+    if (!items.length) { return; }
+
+    var box = document.createElement("div");
+    box.className = "svc-lightbox";
+    box.innerHTML = '<button class="svc-lightbox-close" aria-label="Cerrar">\u00d7</button><img alt="" />';
+    document.body.appendChild(box);
+
+    var img = box.querySelector("img");
+
+    function close() { box.classList.remove("is-open"); }
+    function open(src, alt) {
+      img.setAttribute("src", src);
+      img.setAttribute("alt", alt || "");
+      box.classList.add("is-open");
+    }
+
+    box.addEventListener("click", function (e) {
+      if (e.target === box || e.target.classList.contains("svc-lightbox-close")) { close(); }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { close(); }
+    });
+
+    items.forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var inner = a.querySelector("img");
+        open(a.getAttribute("href"), inner ? inner.getAttribute("alt") : "");
+      });
+    });
+  }
+
+  /* -------------------- Cabecera (sticky + menú móvil) -------------------- */
+  function setupHeader() {
+    var header = document.getElementById("svcHeader");
+    if (!header) { return; }
+    var toggle = document.getElementById("svcHeaderToggle");
+    var nav = document.getElementById("svcHeaderNav");
+
+    function onScroll() {
+      header.classList.toggle("is-scrolled", window.scrollY > 20);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    if (toggle) {
+      toggle.addEventListener("click", function () {
+        var open = header.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+    if (nav) {
+      nav.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          header.classList.remove("is-open");
+          if (toggle) { toggle.setAttribute("aria-expanded", "false"); }
+        });
+      });
+    }
+    var cta = header.querySelector(".svc-header-cta");
+    if (cta) {
+      cta.setAttribute("href", WA_URL);
+      cta.setAttribute("target", "_blank");
+      cta.setAttribute("rel", "noopener");
+    }
+  }
+
   /* -------------------- Init -------------------- */
   function init() {
     assignSectionIds();
@@ -179,6 +251,8 @@
     wireNav();
     makeContactClickable();
     setupForm();
+    setupGallery();
+    setupHeader();
   }
 
   if (document.readyState === "loading") {

@@ -10,6 +10,7 @@ Demo: **https://arnix64.github.io/servicold/**
 - `custom.css` — capa de diseño moderno (tipografía, botones, tarjetas, formulario).
 - `custom.js` — WhatsApp, navegación con anclas y envío del formulario (Formspree).
 - `assets/` — CSS, JS, imágenes y fuentes optimizadas (sin formatos de fuente obsoletos).
+- `assets/img/` — logo transparente (`servicold-logo.png`) y fotos de trabajos (`proyecto-1..6.jpg`).
 - `robots.txt` y `sitemap.xml` — para buscadores.
 - `.nojekyll` — evita el procesamiento de GitHub Pages (Jekyll).
 - `source-original.html` — HTML original de respaldo.

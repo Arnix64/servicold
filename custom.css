@@ -197,7 +197,7 @@ footer a:hover { opacity: .82; }
 }
 
 /* ---------- Logo (sin fondo, sin filtros) ---------- */
-.elementor-widget-image img[src*="servicold-logo"] {
+.elementor-widget-image img[src*="logo_servicold"] {
   border: 0 !important;
   box-shadow: none !important;
   border-radius: 0 !important;
@@ -206,7 +206,7 @@ footer a:hover { opacity: .82; }
   width: auto !important;
   height: auto !important;
 }
-footer .elementor-widget-image img[src*="servicold-logo"] {
+footer .elementor-widget-image img[src*="logo_servicold"] {
   background: #ffffff !important;
   padding: 10px 16px;
   border-radius: 14px;

@@ -5,24 +5,49 @@
    ========================================================================== */
 
 :root {
-  --brand: #288da8;
-  --brand-2: #1f7a91;
-  --brand-3: #3fb3cf;
-  --brand-dark: #113f4b;
-  --brand-light: #e9f4f6;
-  --ink: #0f1c20;
-  --body: #4a5b60;
-  --muted: #7a8a8f;
+  /* Paleta Servicold (extraída del logo) */
+  --navy: #00338d;
+  --navy-2: #0b3b95;
+  --cyan: #00a3e0;
+  --cyan-2: #00b5e2;
+  --cyan-3: #4fc3e8;
+  --cyan-dark: #0077c2;
+  --orange: #ff8200;
+  --orange-2: #f0821d;
+  --gold: #d4af37;
+  --gold-2: #c5a059;
+  --ice: #ebf5fb;
+  --ice-2: #e8f3fa;
+  /* Alias de marca usados por los componentes */
+  --brand: #00a3e0;
+  --brand-2: #0077c2;
+  --brand-3: #4fc3e8;
+  --brand-dark: #00338d;
+  --brand-light: #ebf5fb;
+  --ink: #0b2545;
+  --body: #47576b;
+  --muted: #7a8a9a;
   --white: #ffffff;
   --radius-sm: 12px;
   --radius: 18px;
   --radius-lg: 26px;
-  --shadow-sm: 0 6px 20px rgba(17, 63, 75, 0.08);
-  --shadow: 0 14px 40px rgba(17, 63, 75, 0.12);
-  --shadow-lg: 0 24px 60px rgba(17, 63, 75, 0.18);
+  --shadow-sm: 0 6px 20px rgba(0, 51, 141, 0.08);
+  --shadow: 0 14px 40px rgba(0, 51, 141, 0.12);
+  --shadow-lg: 0 24px 60px rgba(0, 51, 141, 0.18);
   --font-head: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --font-body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Recolorea las variables globales de Elementor hacia la paleta del logo */
+body.elementor-kit-32 {
+  --e-global-color-primary: #00a3e0;
+  --e-global-color-secondary: #0b3b95;
+  --e-global-color-accent: #ff8200;
+  --e-global-color-db0c041: #00338d;
+  --e-global-color-445801f: #0b3b95;
+  --e-global-color-8097f43: #47576b;
+  --e-global-color-8ee479f: #ebf5fb;
 }
 
 /* ---------- Base ---------- */
@@ -424,4 +449,108 @@ body { padding-top: 78px !important; }
   .svc-header-logo img { height: 36px; }
   .svc-header-cta { padding: 10px 16px; font-size: 14px; }
   .svc-header-inner { padding: 10px 16px; gap: 12px; }
+}
+
+/* ---------- Hero renovado ---------- */
+.elementor-element-7906696 { display: none !important; }
+
+.svc-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #002a73 0%, #00338d 42%, #0b3b95 72%, #0077c2 100%);
+  color: #fff;
+}
+.svc-hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(680px 460px at 88% 6%, rgba(0, 181, 226, .40), transparent 60%),
+    radial-gradient(560px 420px at 2% 100%, rgba(255, 130, 0, .20), transparent 62%);
+}
+.svc-hero-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px 76px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.svc-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  max-width: 100%;
+  line-height: 1.35;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .22);
+  color: #eaf6fc;
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+.svc-hero-badge i { color: var(--cyan-2); }
+.svc-hero-title {
+  color: #fff;
+  font-size: clamp(32px, 4.6vw, 58px);
+  line-height: 1.06;
+  letter-spacing: -.025em;
+  margin: 0 0 20px !important;
+}
+.svc-hero-title .svc-hl { color: var(--orange); }
+.svc-hero-sub { color: rgba(255, 255, 255, .88); font-size: clamp(16px, 1.35vw, 18.5px); max-width: 560px; margin: 0 0 30px; }
+.svc-hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
+.svc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 15px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+}
+.svc-btn-primary { background: linear-gradient(135deg, #00b5e2, #00a3e0 55%, #0077c2); color: #fff; box-shadow: 0 14px 30px rgba(0, 163, 224, .40); }
+.svc-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 44px rgba(0, 163, 224, .52); }
+.svc-btn-ghost { background: rgba(255, 255, 255, .10); color: #fff; border: 1.5px solid rgba(255, 255, 255, .38); }
+.svc-btn-ghost:hover { background: rgba(255, 255, 255, .18); transform: translateY(-3px); }
+.svc-hero-features { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 0; margin: 0; }
+.svc-hero-features li { display: inline-flex; align-items: center; gap: 8px; color: rgba(255, 255, 255, .92); font-size: 14.5px; font-weight: 500; }
+.svc-hero-features svg { width: 18px; height: 18px; fill: var(--cyan-2); flex: none; }
+.svc-hero-media { position: relative; min-height: 420px; }
+.svc-hero-img { display: block; border-radius: 22px; object-fit: cover; }
+.svc-hero-img--main { width: 100%; height: 420px; box-shadow: 0 30px 60px rgba(0, 18, 48, .5); }
+.svc-hero-img--sub { position: absolute; width: 48%; height: 215px; right: 6px; bottom: -34px; border: 6px solid #fff; box-shadow: 0 24px 50px rgba(0, 18, 48, .55); }
+.svc-hero-media::after {
+  content: "";
+  position: absolute;
+  left: -26px;
+  bottom: 42px;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--orange-2));
+  box-shadow: 0 16px 34px rgba(255, 130, 0, .45);
+}
+
+@media (max-width: 1024px) {
+  .svc-hero-inner { grid-template-columns: 1fr; gap: 44px; padding: 52px 22px 70px; }
+  .svc-hero-media { min-height: auto; }
+  .svc-hero-img--main { height: 360px; }
+  .svc-hero-img--sub { height: 190px; bottom: -26px; }
+  .svc-hero-media::after { left: -10px; bottom: 20px; width: 66px; height: 66px; }
+}
+@media (max-width: 560px) {
+  .svc-hero-title { font-size: clamp(28px, 8vw, 38px); }
+  .svc-hero-img--main { height: 250px; border-radius: 18px; }
+  .svc-hero-img--sub { display: none; }
+  .svc-hero-media::after { display: none; }
+  .svc-hero-actions .svc-btn { flex: 1 1 100%; justify-content: center; }
+  .svc-hero-inner { padding: 44px 18px 60px; }
 }

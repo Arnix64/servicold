@@ -24,7 +24,6 @@
 
   /* -------------------- Asignar anclas a secciones -------------------- */
   var SECTIONS = {
-    "7906696": "inicio",
     "39288382": "nosotros",
     "3dd46ae7": "servicios",
     "5eef1697": "porque",
@@ -78,7 +77,7 @@
 
   /* -------------------- Enlaces de navegación -------------------- */
   var NAV_MAP = {
-    "inicio": "./",
+    "inicio": "#inicio",
     "nosotros": "#nosotros",
     "servicios": "#servicios",
     "proyectos": "#proyectos",

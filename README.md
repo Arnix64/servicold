@@ -25,16 +25,19 @@ python -m http.server 8080
 # luego abre http://localhost:8080
 ```
 
-## Configurar el formulario
+## Configurar el formulario y las reseñas
 
-El formulario usa **Formspree**. En `custom.js`, reemplaza:
+El formulario de contacto y el de reseñas usan **Formspree**. En `custom.js`, reemplaza:
 
 ```js
 var FORMSPREE_ENDPOINT = "https://formspree.io/f/TU_ID_FORMSPREE";
 ```
 
 por tu endpoint real (por ejemplo `https://formspree.io/f/abcdwxyz`). Mientras no lo
-cambies, el formulario mostrará un aviso y no enviará datos.
+cambies, los formularios mostrarán un aviso y no enviarán datos.
+
+> Las reseñas destacadas de la sección "Lo que dicen nuestros clientes" son de ejemplo:
+> edítalas en `index.html` (busca `svc-review`) con opiniones reales de tus clientes.
 
 ## Aviso
 

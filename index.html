@@ -153,6 +153,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta name="msapplication-TileImage" content="assets/img/icono_servicold_SF.png" />
 <style id="jeg_dynamic_css" type="text/css" data-type="jeg_custom-css"></style>
 <link rel="stylesheet" id="servicold-custom-css" href="custom.css" media="all" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "Servicold Perú",
+  "description": "Refrigeración y aire acondicionado en manos de profesionales. Instalación y mantenimiento de sistemas VRV/VRF, Rooftop, ventilación e instalaciones eléctricas en Lima, Perú.",
+  "image": "https://arnix64.github.io/servicold/assets/img/logo_servicold_SF.png",
+  "url": "https://arnix64.github.io/servicold/",
+  "telephone": "+51994324387",
+  "email": "ventas@servicoldperu.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Lima", "addressCountry": "PE" },
+  "areaServed": "Lima, Perú",
+  "sameAs": [ "https://www.facebook.com/servicoldperu.eirl" ],
+  "priceRange": "$$"
+}
+</script>
 </head>
 <body class="home wp-singular page-template page-template-elementor_header_footer page page-id-122 wp-embed-responsive wp-theme-hello-elementor ehf-template-hello-elementor ehf-stylesheet-hello-elementor jkit-color-scheme hello-elementor-default elementor-default elementor-template-full-width elementor-kit-32 elementor-page elementor-page-122">
 
@@ -170,6 +186,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 			<a href="#servicios">Servicios</a>
 			<a href="#proyectos">Proyectos</a>
 			<a href="#galeria">Galería</a>
+			<a href="#resenas">Reseñas</a>
 			<a href="#contacto">Contacto</a>
 		</nav>
 		<a class="svc-header-cta" href="#contacto">
@@ -899,6 +916,56 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 					<img src="assets/img/proyecto-6.jpg" alt="Mantenimiento de compresores y tubería de refrigeración" loading="lazy" />
 				</a>
 			</div>
+		</section>
+		<section id="resenas" class="svc-reviews-section">
+			<div class="svc-reviews-head">
+				<span class="svc-chip"><i class="jki jki-snowflake-solid" aria-hidden="true"></i> Reseñas</span>
+				<h2 class="svc-reviews-title">Lo que dicen nuestros clientes</h2>
+				<p class="svc-reviews-sub">Tu opinión nos ayuda a seguir mejorando. Comparte tu experiencia y ayúdanos a llegar a más hogares, oficinas e industrias.</p>
+			</div>
+			<div class="svc-reviews-grid">
+				<!-- Reemplaza estas reseñas por opiniones reales de tus clientes -->
+				<article class="svc-review">
+					<div class="svc-review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+					<p class="svc-review-text">“Instalaron el aire acondicionado en nuestra oficina con acabados impecables y muy rápido. Excelente atención de principio a fin.”</p>
+					<div class="svc-review-author"><span class="svc-review-avatar">M</span><span><strong>María G.</strong><small>Oficina corporativa</small></span></div>
+				</article>
+				<article class="svc-review">
+					<div class="svc-review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+					<p class="svc-review-text">“Hicieron el mantenimiento de los equipos VRV de la planta. Puntuales, ordenados y muy profesionales.”</p>
+					<div class="svc-review-author"><span class="svc-review-avatar">C</span><span><strong>Carlos R.</strong><small>Planta industrial</small></span></div>
+				</article>
+				<article class="svc-review">
+					<div class="svc-review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+					<p class="svc-review-text">“Nos asesoraron para elegir el equipo ideal para casa. El servicio fue rápido y el precio justo. ¡Recomendados!”</p>
+					<div class="svc-review-author"><span class="svc-review-avatar">L</span><span><strong>Lucía P.</strong><small>Vivienda</small></span></div>
+				</article>
+			</div>
+			<div class="svc-reviews-actions">
+				<button class="svc-btn svc-btn-primary" type="button" id="svcReviewToggle">Escribir mi reseña</button>
+				<a class="svc-btn svc-btn-outline" href="https://www.facebook.com/servicoldperu.eirl" target="_blank" rel="noopener">Opinar en Facebook</a>
+			</div>
+			<form class="svc-review-form" id="svcReviewForm" hidden>
+				<h3 class="svc-review-form-title">Deja tu reseña</h3>
+				<div class="svc-review-form-row">
+					<label>Tu nombre<input type="text" name="form_fields[name]" id="review-name" required placeholder="Nombre y apellido" /></label>
+					<label>Correo (opcional)<input type="email" name="form_fields[email]" id="review-email" placeholder="tucorreo@ejemplo.com" /></label>
+				</div>
+				<div class="svc-review-rating-label">Tu calificación
+					<span class="svc-stars" id="svcStars" role="radiogroup" aria-label="Calificación">
+						<button type="button" class="svc-star" data-value="1" aria-label="1 estrella">★</button>
+						<button type="button" class="svc-star" data-value="2" aria-label="2 estrellas">★</button>
+						<button type="button" class="svc-star" data-value="3" aria-label="3 estrellas">★</button>
+						<button type="button" class="svc-star" data-value="4" aria-label="4 estrellas">★</button>
+						<button type="button" class="svc-star" data-value="5" aria-label="5 estrellas">★</button>
+					</span>
+					<input type="hidden" name="form_fields[rating]" id="review-rating" value="5" />
+				</div>
+				<label>Tu opinión<textarea name="form_fields[message]" id="review-message" rows="4" required placeholder="Cuéntanos cómo fue tu experiencia con Servicold"></textarea></label>
+				<input type="hidden" name="_subject" value="Nueva reseña web - Servicold" />
+				<div class="svc-review-form-status svc-form-status"></div>
+				<button class="svc-btn svc-btn-primary" type="submit">Enviar reseña</button>
+			</form>
 		</section>
 		<div class="elementor-element elementor-element-62a6235e e-flex e-con-boxed e-con e-parent" data-id="62a6235e" data-element_type="container" data-e-type="container">
 					<div class="e-con-inner">

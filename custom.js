@@ -84,7 +84,9 @@
     "contacto": "#contacto",
     "cobertura": "#cobertura",
     "galería": "#galeria",
-    "galeria": "#galeria"
+    "galeria": "#galeria",
+    "reseñas": "#resenas",
+    "resenas": "#resenas"
   };
 
   function wireNav() {
@@ -242,6 +244,84 @@
     }
   }
 
+  /* -------------------- Reseñas -------------------- */
+  function setupReviews() {
+    var form = document.getElementById("svcReviewForm");
+    var toggle = document.getElementById("svcReviewToggle");
+    var starsWrap = document.getElementById("svcStars");
+    var ratingInput = document.getElementById("review-rating");
+
+    function paint(value) {
+      if (!starsWrap) { return; }
+      starsWrap.querySelectorAll(".svc-star").forEach(function (s) {
+        s.classList.toggle("is-active", parseInt(s.getAttribute("data-value"), 10) <= value);
+      });
+    }
+
+    if (toggle && form) {
+      toggle.addEventListener("click", function () {
+        form.hidden = !form.hidden;
+        if (!form.hidden) { form.scrollIntoView({ behavior: "smooth", block: "center" }); }
+      });
+    }
+
+    if (starsWrap) {
+      starsWrap.querySelectorAll(".svc-star").forEach(function (s) {
+        s.addEventListener("mouseenter", function () { paint(parseInt(s.getAttribute("data-value"), 10)); });
+        s.addEventListener("click", function () {
+          var v = parseInt(s.getAttribute("data-value"), 10);
+          if (ratingInput) { ratingInput.value = v; }
+          paint(v);
+        });
+      });
+      starsWrap.addEventListener("mouseleave", function () {
+        paint(ratingInput ? parseInt(ratingInput.value, 10) : 5);
+      });
+      paint(5);
+    }
+
+    if (!form) { return; }
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var status = form.querySelector(".svc-review-form-status");
+      function show(type, message) {
+        status.className = "svc-form-status is-active is-" + type;
+        status.textContent = message;
+      }
+      if (FORMSPREE_ENDPOINT.indexOf("TU_ID_FORMSPREE") !== -1) {
+        show("error", "Demo: falta configurar el endpoint de Formspree en custom.js (FORMSPREE_ENDPOINT).");
+        return;
+      }
+      show("loading", "Enviando reseña...");
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; }
+      fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      })
+        .then(function (response) {
+          if (response.ok) {
+            form.reset();
+            if (ratingInput) { ratingInput.value = 5; }
+            paint(5);
+            show("success", "¡Gracias! Tu reseña fue enviada correctamente.");
+          } else {
+            return response.json().then(function (data) {
+              var msg = data && data.errors ? data.errors.map(function (x) { return x.message; }).join(" ") : "No se pudo enviar la reseña.";
+              throw new Error(msg);
+            });
+          }
+        })
+        .catch(function () {
+          show("error", "No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.");
+        })
+        .finally(function () {
+          if (btn) { btn.disabled = false; }
+        });
+    });
+  }
+
   /* -------------------- Init -------------------- */
   function init() {
     assignSectionIds();
@@ -252,6 +332,7 @@
     setupForm();
     setupGallery();
     setupHeader();
+    setupReviews();
   }
 
   if (document.readyState === "loading") {
